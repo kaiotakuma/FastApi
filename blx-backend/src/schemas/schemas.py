@@ -1,9 +1,6 @@
 from pydantic import BaseModel
 from typing import Optional, List
 
-
-
-
 class Usuario(BaseModel):
     id:Optional[str]= None
     nome:str
@@ -17,13 +14,16 @@ class Produto(BaseModel):
     detalhes:str
     preco:float
     disponivel:bool=False
+
+    """
+    Para que os schemas possam ser gerados apartir de modelos 
+    """
     class Config:
         orm_mode =True
 
 
 class Pedido(BaseModel):
     id:Optional[str]= None
-  
     quantidade:int
     entrega: bool= True
     endereço:str
