@@ -1,6 +1,5 @@
-from typing_extensions import Annotated
 from pydantic import BaseModel
-from typing import Optional, List
+from typing import Optional
 
 """
 Especificar como vamos receber e entregar nossos dados 
@@ -16,15 +15,11 @@ Adicionais: Exibir por Id, Listar por Título, Remover
 """
 
 class Serie(BaseModel):
-    id:Optional[int] = None
-    titulo = str
-    ano = int
-    genero = str 
-    qtdTemporadas = int 
-    """
-    class Config
-    Para que os schemas possam ser gerados apartir de modelos 
-    """
-    class Config:
-        orm_mode =True
+    id: Optional[int] = None
+    titulo: str
+    ano: int
+    genero: str
+    qtd_temporadas: int
 
+    class Config:
+        orm_mode = True
